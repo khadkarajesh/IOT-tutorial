@@ -3,7 +3,7 @@ import json
 import os
 from google.cloud import pubsub_v1
 
-# TODO Path to google credentials
+# TODO  Path to google credentials
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "key.json"
 
 def publish_messages(project_id, topic_name):
