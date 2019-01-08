@@ -98,13 +98,15 @@ def get_client(
 
     return client
 
+
 def subscribe_config(client, device_id):
-    #subscribe to get device config
+    # subscribe to get device config
     mqtt_config = '/devices/{}/config'.format(device_id)
     client.subscribe(mqtt_config)
 
+
 def subscribe_command(client, device_id):
-    #subscribe to get device commands
+    # subscribe to get device commands
     mqtt_command = '/devices/{}/commands/#'.format(device_id)
     client.subscribe(mqtt_command)
 
@@ -123,4 +125,3 @@ if __name__ == "__main__":
     subscribe_command(client, args.device_id)
     subscribe_config(client, args.device_id)
     client.loop_forever()
-    
