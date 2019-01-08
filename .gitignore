@@ -105,3 +105,8 @@ venv.bak/
 rsa_private.pem
 rsa_public.pem
 key.json
+
+#vs code
+.vscode/
+
+.DS_Store
