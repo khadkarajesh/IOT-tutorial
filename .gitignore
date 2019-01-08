@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 rsa_private.pem
 rsa_public.pem
+key.json
