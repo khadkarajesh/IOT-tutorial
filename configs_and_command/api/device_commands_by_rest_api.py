@@ -46,14 +46,11 @@ def send_command(
         project_id, cloud_region, registry_id, device_id)
 
     config_body = {
-        'binaryData': base64.urlsafe_b64encode(
-            command.encode('utf-8')).decode('ascii')
+        'binaryData': base64.urlsafe_b64encode(command.encode('utf-8')).decode('ascii')
     }
+    print(config_body)
 
-    return client.projects(
-    ).locations().registries(
-    ).devices().sendCommandToDevice(
-        name=device_path, body=config_body).execute()
+    return client.projects().locations().registries().devices().sendCommandToDevice(name=device_path, body=config_body).execute()
     # [END iot_send_command]
 
 
@@ -97,7 +94,7 @@ def parse_command_line_args():
         '--service_account_json',
         default=os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"),
         help='Path to service account json file.')
-    parser.add_argument('--command', help='send commands to device')
+    parser.add_argument('--command', type=str, help='send commands to device')
 
     return parser.parse_args()
 
